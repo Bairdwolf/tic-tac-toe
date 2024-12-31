@@ -1,10 +1,9 @@
 class Square
-  attr_accessor :row
-  attr_accessor :column
-  attr_accessor :value
+  attr_accessor :row, :column, :value
+
   def initialize(row, column)
-    @row=row
-    @column=column
-    @value=0
+    @row = row
+    @column = column
+    @value = 0
   end
 end
