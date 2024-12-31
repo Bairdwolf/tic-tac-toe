@@ -47,8 +47,8 @@ class GameDisplay
     display_board()
   end
 
-  def middle_update(square)
-    self.middle[square]=board.state[square].value
+  def middle_update(location, board)
+    self.middle[location]=board.state[location].value
     display_board()
   end
 
@@ -56,12 +56,12 @@ class GameDisplay
     hash={0 => '-', 1 => 'X', -1 => 'O'}
     translated=arr.map{|item| hash[item]}
     empty_pipes= '|             |'
-    middle_lines=[three_print(translated[0..2]), empty_pipes, three_print(translated[3..5]), empty_pipes, three_print(translated[6..7])]
-
-    def three_print(array)
-      output= "|  #{array[0]}   #{array[1]}   #{array[2]}  |}"
-      output
-    end
+    middle_lines=[three_print(translated[0..2]), empty_pipes, three_print(translated[3..5]), empty_pipes, three_print(translated[6..8])]
     middle_lines
+  end
+
+  def three_print(array)
+    output= "|  #{array[0]}   #{array[1]}   #{array[2]}  |}"
+    output
   end
 end

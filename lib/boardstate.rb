@@ -8,15 +8,8 @@ class BoardState
     @state=[Square.new('top', 'left'), Square.new('top', 'middle'), Square.new('top', 'right'), Square.new('middle', 'left'), Square.new('middle', 'middle'), Square.new('middle', 'right'), Square.new('bottom', 'left'), Square.new('bottom', 'middle'), Square.new('bottom', 'right')]
   end
 
-  def set_board()
-    self.state=[Square.new('top', 'left'), Square.new('top', 'middle'), Square.new('top', 'right'), Square.new('middle', 'left'), Square.new('middle', 'middle'), Square.new('middle', 'right'), Square.new('bottom', 'left'), Square.new('bottom', 'middle'), Square.new('bottom', 'right')]
-    self.winner='none'
-    self.player=-1
-    game_display.display_board()
-  end
-
   def check_move(move)
-    self.state[move]==0
+    self.state[move].value==0
   end
 
   def check_array(arr, num)
@@ -37,9 +30,9 @@ class BoardState
 
   def check_diagonals(move, num)
     output=false
-    if move.odd?
-      left=[self.state[1], self.state[5], self.state[9]]
-      right=[self.state[3], self.state[5], self.state[7]]
+    if (move+1).odd?
+      left=[self.state[0], self.state[4], self.state[8]]
+      right=[self.state[2], self.state[4], self.state[6]]
       if check_array(left, num) || check_array(right, num)
         output=true
       end
