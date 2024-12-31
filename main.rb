@@ -30,6 +30,9 @@ def ask_input(player, game_display)
   begin
     puts "Select a number from 1 to 9"
     input=gets.chomp.to_i
+    if input==0
+      raise StandardError.new "Invalid input"
+    end
   rescue StandardError =>e
     puts "\tError: #{e}"
     retry
@@ -40,9 +43,7 @@ end
 def play_move(player, choice, board, game_display)
   board.state[choice].value=player
   winner=board.check_squares(choice)
-  if winner==0
-    game_display.middle_update(choice, board)
-  end
+  game_display.middle_update(choice, board)
   winner
 end
 

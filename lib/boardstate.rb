@@ -21,7 +21,7 @@ class BoardState
     #takes location on board and returns winner as int value (0 is no winner)
     location=self.state[move]
     rows=self.state.filter{|square| square.row==location.row}
-    columns=self.state.filter{|square| square.row==location.row}
+    columns=self.state.filter{|square| square.column==location.column}
     if check_array(rows, location.value)||check_array(columns, location.value)||check_diagonals(move, location.value)
       winner=location.value
     end

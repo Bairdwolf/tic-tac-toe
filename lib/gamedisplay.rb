@@ -49,7 +49,6 @@ class GameDisplay
 
   def middle_update(location, board)
     self.middle[location]=board.state[location].value
-    display_board()
   end
 
   def middle_print(arr)
